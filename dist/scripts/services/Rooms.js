@@ -5,7 +5,10 @@
 
     return {
       all: rooms,
-    }
+      create: function(room) {
+        return rooms.$add({name:room});
+      }
+    };
   }
 
   angular

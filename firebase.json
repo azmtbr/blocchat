@@ -1,0 +1,9 @@
+{
+  "firebase": "blocchat-1105",
+  "public": "app",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

@@ -4,20 +4,13 @@
     <h1>Bloc Chat</h1>
     <h3>Rooms</h3>
 
-    <form class="form" ng-submit="addRoom()">
-      <ul class="list-group">
-        <li class="list-group-item" ng-repeat="room in rooms">
-          <span class="room-text">{{room.room}}</span>
-        </li>
-      </ul>
+    <button type="button" class="btn btn-primary" ng-click="open()">Add New Room</button>
 
-      <input type="text" ng-model="room" class="form-control" placeholder="New room name" />
-      <button type="button" class="btn btn-primary" ng-click="addRoom()">Add</button>
-    </form>
-
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="room in rooms">
+        <span class="room-text">{{room.room}}</span>
+      </li>
+    </ul>
 
   </div>
-
-
-
 </div>

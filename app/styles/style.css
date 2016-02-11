@@ -1,6 +1,18 @@
 .navbar {
+  display: inline-block;
   position: fixed;
   height: 100%;
   padding-right: 15px;
   padding-left: 15px;
+}
+
+.messages-container {
+  display: inline-block;
+  position: relative;
+  float: right;
+  width: 80%;
+}
+
+.message-sent-at {
+  float: right;
 }

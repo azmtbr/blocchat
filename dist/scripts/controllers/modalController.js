@@ -1,10 +1,10 @@
 (function() {
   function modalController($scope, $uibModalInstance, Rooms) {
-    $scope.rooms = rooms;
+    $scope.rooms = Rooms.rooms;
 
     $scope.createRoom = function() {
       $uibModalInstance.close($scope.room);
-      Room.create($scope.newRoom);
+      Rooms.create($scope.newRoom);
     };
 
     $scope.cancel = function() {

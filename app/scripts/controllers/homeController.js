@@ -13,6 +13,10 @@
         size: size
       });
     }
+
+    $scope.openRoom = function (roomId) {
+      $scope.messages = Rooms.getMessages(roomId);
+    };
   }
 
 

@@ -11,7 +11,16 @@
 				url: '/',
 				controller: 'homeController as home',
 				templateUrl: '/templates/home.html'
-			});
+			})
+			// .state('modal', {
+			// 	'abstract': true,
+			// 	url: '',
+			// 	controller: 'modalController as modal',
+			// 	views: {
+			// 		'modal': {template: 'createRoomModal.html' }
+			// 	}
+			// })
+			;
 	}
 
 

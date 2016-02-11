@@ -1,11 +1,11 @@
-<div class="modal">
+
   <div class="modal-header">
     <h3 class="modal-title">Create a new Room</h3>
   </div>
 
   <div class="modal-body">
     <form class="form" ng-submit="createRoom()">
-      <input type="text" ng-model="room" class="form-control" placeholder="New room name" />
+      <input type="text" ng-model="newRoom" class="form-control" placeholder="New room name" />
     </form>
   </div>
 
@@ -13,4 +13,3 @@
     <button class="btn btn-primary" type="button" ng-click="createRoom()">Create Room</button>
     <button class="btn btn-danger" type="button" ng-click="cancel()">Cancel</button>
   </div>
-</div>

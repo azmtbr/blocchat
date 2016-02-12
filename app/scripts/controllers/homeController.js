@@ -5,6 +5,8 @@
     $scope.rooms = Rooms.all;
     $scope.animationsEnabled = true;
 
+    $scope.currentRoom = Rooms.name;
+
     $scope.makeUserExist = function () {
       $scope.userExists = true;
     };
@@ -38,7 +40,7 @@
       }
     };
 
-    $scope.sendMessage = function () {
+    $scope.sendMessage = function (room) {
       Message.send($scope.newMessage);
       $scope.newMessage = "";
     };

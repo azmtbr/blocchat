@@ -11,7 +11,7 @@
       },
       create: function(room) {
           return rooms.$add({
-            name:room
+            name:room,
           });
       }
     }

@@ -3,23 +3,27 @@
   <div class="navbar-header">
     <h1>Bloc Chat</h1>
 
-    <button type="button" class="btn btn-primary" ng-click="open()">Add New Room</button>
+    <h3>Rooms</h3>
 
+    <button type="button" class="add-room-button btn btn-primary" ng-click="open()">Add New Room</button>
+  <div class="room-list">
     <ul class="list-group">
       <li class="list-group-item" ng-repeat="room in rooms">
         <a class="room-text" ng-click="openRoom(room.$id)">{{room.name}}</a>
       </li>
     </ul>
+  </div>
+
 
   </div>
 </div>
 
 <div class="messages-container">
-  <div class="messages">
-    <li class="list-group-item" ng-repeat="message in messages | orderBy: 'sent_at'">
-      <h6 class="message-user">{{message.username}}</h6>
-      <span class="message-content">{{message.content}}</span>
-      <span class="message-sent-at">{{message.sent_at}}</span>
-    </li>
-  </div>
+  <table class="messages table table-striped">
+    <tr ng-repeat="message in messages | orderBy: 'sent_at'">
+      <th class="message-user">{{message.username}}</th>
+      <td class="message-content">{{message.content}}</td>
+      <td class="message-sent-at">{{message.sent_at}}</td>
+    </tr>
+  </table>
 </div>

@@ -6,10 +6,12 @@
     return {
       all: rooms,
       getMessages: function(roomId) {
-
         var array = $firebaseArray(new Firebase('https://blocchat-1105.firebaseio.com/rooms/rooms/' + roomId + '/messages'));
         return array;
       },
+      create: function(room) {
+          return rooms.$add({name:room});
+      }
     }
   }
 

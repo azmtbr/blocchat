@@ -11,20 +11,11 @@
 				url: '/',
 				controller: 'homeController as home',
 				templateUrl: '/templates/home.html'
-			})
-			// .state('modal', {
-			// 	'abstract': true,
-			// 	url: '',
-			// 	controller: 'modalController as modal',
-			// 	views: {
-			// 		'modal': {template: 'createRoomModal.html' }
-			// 	}
-			// })
-			;
+			});
 	}
 
 
 	angular
-		.module('blocChat', ['ui.router', 'firebase', 'ui.bootstrap'])
+		.module('blocChat', ['ui.router', 'firebase', 'ui.bootstrap', 'ngCookies'])
 		.config(config);
 })();

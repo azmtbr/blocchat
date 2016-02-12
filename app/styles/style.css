@@ -7,12 +7,15 @@
 }
 
 .messages-container {
-  display: inline-block;
-  position: relative;
-  float: right;
+  display: block;
   width: 80%;
+  margin-left: 200px;
 }
 
 .message-sent-at {
   float: right;
+}
+
+.add-room-button {
+  margin-bottom: 15px;
 }

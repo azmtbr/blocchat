@@ -18,7 +18,7 @@
   </div>
 </div>
 
-<div class="messages-container">
+<div class="messages-container container">
   <table class="messages table table-striped">
     <tr ng-repeat="message in messages | orderBy: 'sent_at'">
       <th class="message-user">{{message.username}}</th>
@@ -26,4 +26,11 @@
       <td class="message-sent-at">{{message.sent_at}}</td>
     </tr>
   </table>
+</div>
+
+<div class="message-sender container">
+  <form class="form" ng-submit="sendMessage(message)" placeholder="Type message here" >
+    <input type="text" ng-model="newMessage" class="form-control" placeholder="Type message here" />
+    <button type="button" class="btn btn-primary" ng-click="sendMessage(message)">Send</button>
+  </form>
 </div>

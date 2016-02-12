@@ -1,5 +1,5 @@
 (function() {
-  function homeController($scope, Rooms, $uibModal) {
+  function homeController($scope, Rooms, Message, $uibModal) {
 
     $scope.userExists = false;
     $scope.rooms = Rooms.all;
@@ -37,10 +37,15 @@
       $scope.messages = Rooms.getMessages(roomId);
       }
     };
+
+    $scope.sendMessage = function () {
+      Message.send($scope.newMessage);
+      $scope.newMessage = "";
+    };
   }
 
 
   angular
 		.module('blocChat')
-		.controller('homeController', ['$scope', 'Rooms', '$uibModal', homeController]);
+		.controller('homeController', ['$scope', 'Rooms', 'Message', '$uibModal', homeController]);
 })();

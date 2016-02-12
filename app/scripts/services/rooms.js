@@ -10,7 +10,9 @@
         return array;
       },
       create: function(room) {
-          return rooms.$add({name:room});
+          return rooms.$add({
+            name:room
+          });
       }
     }
   }

@@ -19,3 +19,11 @@
 .add-room-button {
   margin-bottom: 15px;
 }
+
+.message-sender {
+  display: block;
+  position: absolute;
+  bottom: 5px;
+  width: 70%;
+  margin-left: 200px;
+}

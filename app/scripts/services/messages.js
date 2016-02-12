@@ -5,9 +5,9 @@
 
 
     return {
-      send: function(newMessage, roomId) {
+      send: function(newMessage) {
           return messages.$add({
-            username: $cookies.get('username'),
+            username: $cookies.get('currentUser'),
             sent_at: Firebase.ServerValue.TIMESTAMP,
             content: newMessage,
           });

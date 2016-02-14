@@ -28,6 +28,7 @@
     }
 
     $scope.openRoom = function (roomId) {
+      $scope.currentRoomId = roomId;
       if (!$cookies.get('currentUser')){
         $uibModal.open({
           templateUrl: '/templates/usernameModal.html',
@@ -39,7 +40,7 @@
     };
 
     $scope.sendMessage = function () {
-      Message.send($scope.newMessage);
+      Message.send($scope.currentRoomId, $scope.newMessage);
       $scope.newMessage = "";
     };
   }

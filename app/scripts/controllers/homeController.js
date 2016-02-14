@@ -1,5 +1,5 @@
 (function() {
-  function homeController($scope, Rooms, Message, $uibModal) {
+  function homeController($scope, Rooms, Message, $uibModal, $cookies) {
 
     $scope.userExists = false;
     $scope.rooms = Rooms.all;
@@ -12,7 +12,7 @@
     $scope.$on('currentUserExists', $scope.makeUserExist);
 
     $scope.open = function (size) {
-      if (!$scope.userExists) {
+      if (!$cookies.get('currentUser')){
         $uibModal.open({
           templateUrl: '/templates/usernameModal.html',
           controller: 'userModalController'
@@ -28,7 +28,7 @@
     }
 
     $scope.openRoom = function (roomId) {
-      if (!$scope.userExists) {
+      if (!$cookies.get('currentUser')){
         $uibModal.open({
           templateUrl: '/templates/usernameModal.html',
           controller: 'userModalController'
@@ -47,5 +47,5 @@
 
   angular
 		.module('blocChat')
-		.controller('homeController', ['$scope', 'Rooms', 'Message', '$uibModal', homeController]);
+		.controller('homeController', ['$scope', 'Rooms', 'Message', '$uibModal', '$cookies', homeController]);
 })();

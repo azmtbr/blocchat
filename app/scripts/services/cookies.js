@@ -1,6 +1,7 @@
 (function() {
   function BlocChatCookies($cookies, $uibModal) {
-    if (!$cookies.blocChatCurrentUser || $cookies.blocChatCurrentUser === '') {
+    var user = $cookies.get('currentUser');
+    if (!user || user === '') {
       $uibModal.open({
         templateUrl: '/templates/usernameModal.html',
         controller: 'userModalController'

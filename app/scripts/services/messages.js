@@ -1,6 +1,6 @@
 (function() {
-  function Message(Rooms, $firebaseArray, $cookies) {
-    var firebaseRef = new Firebase('https://blocchat-1105.firebaseio.com/rooms/rooms/' + roomId);
+  function Message($firebaseArray, $cookies) {
+    var firebaseRef = new Firebase('https://blocchat-1105.firebaseio.com/rooms/');
     var messages = $firebaseArray(firebaseRef.child('messages'));
 
 
@@ -17,5 +17,5 @@
 
   angular
     .module('blocChat')
-    .factory('Message', ['Rooms', '$firebaseArray', '$cookies', Message]);
+    .factory('Message', ['$firebaseArray', '$cookies', Message]);
 })();

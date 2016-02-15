@@ -1,11 +1,9 @@
 (function() {
-  function homeController($scope, Rooms, Message, $uibModal) {
+  function homeController($scope, $cookies, Rooms, Message, $uibModal) {
 
     $scope.userExists = false;
     $scope.rooms = Rooms.all;
     $scope.animationsEnabled = true;
-
-    $scope.currentRoom = Rooms.name;
 
     $scope.makeUserExist = function () {
       $scope.userExists = true;
@@ -36,11 +34,13 @@
           controller: 'userModalController'
         })
       } else {
-      $scope.messages = Rooms.getMessages(roomId);
+        $scope.messages = Rooms.getMessages(roomId);
+        $scope.currentRoom = Rooms.getCurrentRoom(roomId);
       }
     };
 
-    $scope.sendMessage = function (room) {
+    $scope.sendMessage = function () {
+
       Message.send($scope.newMessage);
       $scope.newMessage = "";
     };
@@ -49,5 +49,5 @@
 
   angular
 		.module('blocChat')
-		.controller('homeController', ['$scope', 'Rooms', 'Message', '$uibModal', homeController]);
+		.controller('homeController', ['$scope', '$cookies', 'Rooms', 'Message', '$uibModal', homeController]);
 })();

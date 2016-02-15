@@ -19,7 +19,6 @@
 </div>
 
 <div class="messages-container container">
-  <h2 class="room-title">{{room.name}}</h2>
     <table class="messages table table-striped">
       <tr ng-repeat="message in messages | orderBy: 'sent_at'">
         <th class="message-user">{{message.username}}</th>

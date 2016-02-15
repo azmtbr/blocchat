@@ -1,15 +1,9 @@
 (function() {
   function homeController($scope, Rooms, Message, $uibModal, $cookies) {
-
-    $scope.userExists = false;
     $scope.rooms = Rooms.all;
     $scope.animationsEnabled = true;
+    $scope.roomName = "Please choose a chat room to begin chatting.";
 
-    $scope.makeUserExist = function () {
-      $scope.userExists = true;
-    };
-
-    $scope.$on('currentUserExists', $scope.makeUserExist);
 
     $scope.open = function (size) {
       if (!$cookies.get('currentUser')){
@@ -36,6 +30,9 @@
         })
       } else {
       $scope.messages = Rooms.getMessages(roomId);
+      Rooms.getName(roomId).then(function(name){
+        $scope.roomName = name;
+      });
       }
     };
 

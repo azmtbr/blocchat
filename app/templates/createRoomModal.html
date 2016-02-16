@@ -1,15 +1,18 @@
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" ng-click="cancel()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">Create a new Room</h3>
+      </div>
 
-  <div class="modal-header">
-    <h3 class="modal-title">Create a new Room</h3>
-  </div>
+      <div class="modal-body">
+        <form class="form" ng-submit="createRoom()">
+          <input type="text" ng-model="newRoom" class="form-control modal-form" placeholder="Room Name" />
+        </form>
+      </div>
 
-  <div class="modal-body">
-    <form class="form" ng-submit="createRoom()">
-      <input type="text" ng-model="newRoom" class="form-control" placeholder="New room name" />
-    </form>
-  </div>
-
-  <div class="modal-footer">
-    <button class="btn btn-primary" type="button" ng-click="createRoom()">Create Room</button>
-    <button class="btn btn-danger" type="button" ng-click="cancel()">Cancel</button>
+      <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="createRoom()">Create</button>
+      </div>
+    </div>
   </div>

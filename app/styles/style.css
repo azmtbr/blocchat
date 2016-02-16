@@ -1,54 +1,151 @@
-.container {
-  margin-top: 100px;
+body {
+  background-color: aliceblue;
 }
 
-.title-text {
-  display: block;
-  padding: 5px;
+@media (max-width: 768px) {
+  .container {
+    margin-top: 50px;
+  }
+
+/*Modals*/
+  /*.modal-dialog {
+    width: 75%;
+  }*/
+
+  /*.modal-dialog-user {
+    max-width: 200px;
+  }*/
+
+/*Navbar*/
+  .title-text {
+    display: block;
+    padding: 5px;
+  }
+
+  .dropdown-title-text {
+    display: block;
+    padding: 10px;
+  }
+
+  .room-list {
+    display: block;
+  }
+
+/*Chat Room*/
+  .messages {
+    display: block;
+    width: 90%;
+  }
+
+  .message-sent-at {
+    float: right;
+  }
+
+  .message-sender {
+    display: block;
+  }
+
+  .message-text-box {
+    display: inline-block;
+    width: 80%;
+    margin-left: 10px;
+  }
+
+  .send-button {
+    display: inline-block;
+    margin-left: 10px;
+  }
+
+  .room-title-text {
+    padding: 10px;
+  }
 }
 
-.dropdown-title-text {
-  display: block;
-  padding: 10px;
-}
 
-.room-list {
-  display: block;
-}
 
-.messages {
-  display: block;
-}
+@media (min-width: 768px) {
 
-.message-sent-at {
-  float: right;
-}
+  .container {
+    margin-top: 100px;
+  }
 
-.add-room-button {
-  margin-bottom: 15px;
-}
+/*Modals*/
+  /*.modal-dialog {
+    max-width: 60%;
+  }*/
 
-.message-sender {
-  display: block;
-}
+  /*.modal-dialog-user {
+    max-width: 400px;
+  }*/
 
-.message-text-box {
-  display: inline-block;
-  width: 80%;
-  margin-left: 10px;
-}
+/*Navbar*/
+  .site-title {
+    display: inline-block;
+  }
 
-.send-button {
-  display: inline-block;
-  margin-left: 10px;
-}
+  .title-text {
+    display: inline-block;
+    padding: 5px;
+  }
 
-.room-title {
-  display: block;
-  background-color: lightgrey;
-  border-radius: 25px;
-}
+  .room-dropdown {
+    display: inline-block;
+  }
 
-.room-title-text {
-  padding: 10px;
+  .dropdown-title-text {
+    display: block;
+    padding: 10px;
+  }
+
+  .room-list {
+    display: block;
+  }
+
+  .add-room-button {
+    margin-bottom: 15px;
+  }
+
+/*Chat Room*/
+  .messages {
+    display: block;
+  }
+
+  .table-body {
+    width: 80%;
+  }
+
+  .message-user {
+    display: inline-block;
+    margin-right: 10px;
+    float: left;
+  }
+
+  .message-content {
+    display: inline-block;
+  }
+
+  .message-sent-at {
+    display: inline-block;
+    float: right;
+    margin-left: 400px;
+  }
+
+  .message-text-box {
+    display: inline-block;
+    width: 80%;
+    margin-left: 10px;
+  }
+
+  .message-sender {
+    display: block;
+  }
+
+  .send-button {
+    display: inline-block;
+    margin-left: 10px;
+  }
+
+  .room-title-text {
+    padding: 10px;
+  }
 }

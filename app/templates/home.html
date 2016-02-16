@@ -1,40 +1,36 @@
-<div class="navbar navbar-default navbar-fixed-top">
-  <div class="room-list">
-    <div class="navbar-header">
-      <h1 class="title-text">Bloc Chat</h1>
-    </div>
-    <button type="button" class="room-dropdown btn btn-default dropdown-toggle"
-            data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">Choose Wisely</button>
-      <ul class="dropdown-menu nav-pills">
-        <li class="list-group-item" ng-repeat="room in rooms">
-          <a class="room-text" ng-click="openRoom(room.$id)">{{room.name}}</a>
-        </li>
-        <li>
-          <button type="button" class="add-room-button btn btn-primary" ng-click="open()">New Room</button>
-        </li>
-      </ul>
-
-  </div>
+<div class="navbar navbar-default navbar-fixed-top navbar-left">
+      <div class="site-title">
+        <h1 class="title-text">Bloc Chat
+          <small class="room-title-text" ng-show="roomChosen">{{roomName}}</small>
+          <small class="welcome-text" ng-show="!roomChosen">Welcome {{blocChatCurrentUser}}! Please choose a chat room</small>
+        </h1>
+      </div>
+      <button type="button" class="room-dropdown btn btn-default dropdown-toggle"
+              data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">Choose Wisely</button>
+        <ul class="dropdown-menu nav-pills">
+          <li class="list-group-item" ng-repeat="room in rooms">
+            <a class="room-text" ng-click="openRoom(room.$id)">{{room.name}}</a>
+          </li>
+          <li>
+            <button type="button" class="add-room-button btn btn-primary" ng-click="open()">New Room</button>
+          </li>
+        </ul>
 </div>
 
 
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
-      <div class="room-title">
-        <h2 class="room-title-text">{{roomName}}</h2>
-      </div>
-    </div>
-
-    <div class="col-md-8">
+    <div class="container">
       <table class="messages table table-striped">
-        <tr ng-repeat="message in messages | orderBy: 'sent_at'">
+        <tr class="table-body" ng-repeat="message in messages | orderBy: 'sent_at'">
           <th class="message-user">{{message.username}}</th>
           <td class="message-content">{{message.content}}</td>
           <td class="message-sent-at">{{message.sent_at}}</td>
         </tr>
       </table>
+    </div>
+  </div>
 
       <div class="message-sender">
         <form class="form" ng-submit="sendMessage(message)">
@@ -42,6 +38,4 @@
           <button type="button" class="btn btn-primary send-button" ng-click="sendMessage(message)">Send</button>
         </form>
       </div>
-    </div>
-  </div>
 </div>

@@ -1,14 +1,18 @@
-<div class="modal-header">
-  <h3 class="modal-title">Please create a username for your chat session</h3>
-</div>
+<div class="modal-dialog modal-sm">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 class="modal-title">Please create a username for your chat session</h3>
+    </div>
 
-<div class="modal-body">
-  <form class="form" ng-submit="addNewUser()">
-    <input type="text" ng-model="blocChatCurrentUser" class="form-control" placeholder="Enter your desired username" />
-  </form>
-  <span class="invalid">{{invalid}}</span>
-</div>
+    <div class="modal-body">
+      <form class="form" ng-submit="addNewUser()">
+        <input type="text" ng-model="blocChatCurrentUser" class="form-control" placeholder="Enter your desired username" />
+      </form>
+      <span class="invalid">{{invalid}}</span>
+    </div>
 
-<div class="modal-footer">
-  <button class="btn btn-primary" type="button" ng-click="addNewUser()">Create User</button>
+    <div class="modal-footer">
+      <button class="btn btn-primary" type="button" ng-click="addNewUser()">Create User</button>
+    </div>
+  </div>
 </div>

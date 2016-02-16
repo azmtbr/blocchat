@@ -2,7 +2,8 @@
   function homeController($scope, Rooms, Message, $uibModal, $cookies) {
     $scope.rooms = Rooms.all;
     $scope.animationsEnabled = true;
-    $scope.roomName = "Please choose a chat room to begin chatting.";
+    $scope.roomName = "Please choose a chat room to begin chatting";
+    $scope.roomChosen = false;
 
 
     $scope.open = function (size) {
@@ -16,7 +17,6 @@
           animation: $scope.animationsEnabled,
           templateUrl: '/templates/createRoomModal.html',
           controller: 'roomModalController',
-          size: size
         });
       }
     }
@@ -33,6 +33,7 @@
       Rooms.getName(roomId).then(function(name){
         $scope.roomName = name;
       });
+      $scope.roomChosen = true;
       }
     };
 

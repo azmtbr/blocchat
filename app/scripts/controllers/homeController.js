@@ -6,6 +6,7 @@
     $scope.roomChosen = false;
     $scope.showNav = false;
 
+    // $scope.time = $moment('20111031', "YYYYMMDD").fromNow();
 
     $scope.toggleNav = function() {
       $scope.showNav = $scope.showNav === false ? true: false;

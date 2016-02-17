@@ -12,6 +12,8 @@
 				controller: 'homeController as home',
 				templateUrl: '/templates/home.html'
 			});
+
+		
 	}
 
 

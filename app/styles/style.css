@@ -30,6 +30,10 @@ li {
 
 /* collapsed sidebar styles */
 @media screen and (max-width: 767px) {
+  .modal-dialog {
+    min-width: 200px;
+    max-width: 300px;
+  }
 
   .sidebar {
     position: absolute;
@@ -119,6 +123,10 @@ li {
     height: 100%;
     padding-right: 0;
     padding-top: 20px;
+  }
+
+  .modal-dialog {
+    width: 300px;
   }
 
   .messages {

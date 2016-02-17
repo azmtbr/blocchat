@@ -1,56 +1,51 @@
-<div class="page-container">
-  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-          <button class="navbar-toggle" ng-click="toggleNav()">
-            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-          </button>
-        <h4 class="sidebar-brand"><img class="img-responsive" src="/assets/images/bloc-chat-logo.png"</h4>
-      </div>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+        <button class="navbar-toggle" ng-click="toggleNav()">
+          <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+        </button>
+      <h4 class="sidebar-brand"><img class="img-responsive" src="/assets/images/bloc-chat-logo.png"></h4>
+      <h5 class="welcome" ng-show="!roomChosen">Welcome {{blocChatCurrentUser}}! Please choose a chat room</h5>
+      <h5 class="room-title-text" ng-show="roomChosen">Room: {{roomName}}</h5>
     </div>
+</div>
+
+<div class="row container-fluid main-content">
+  <!-- sidebar -->
+  <div ng-show="showNav" class="col-xs-4 visible-xs sidebar">
+    <ul class="nav">
+      <li  ng-repeat="room in rooms">
+        <a href="#" class="room-text" ng-click="openRoom(room.$id)">{{room.name}}</a>
+      </li>
+      <button type="button" class="add-room-button btn btn-default btn-sm" ng-click="open()">New Room</button>
+    </ul>
   </div>
 
-  <div class="container-fluid chat-room">
-    <div class="row">
+  <!-- sidebar large screen -->
+  <div class="col-sm-4 hidden-xs sidebar-large">
+    <ul class="nav room-list">
+      <li  ng-repeat="room in rooms">
+        <a href="#" class="room-text" ng-click="openRoom(room.$id)">{{room.name}}</a>
+      </li>
+      <button type="button" class="add-room-button btn btn-default btn-sm" ng-click="open()">New Room</button>
+    </ul>
+  </div>
 
-      <!-- sidebar -->
-      <div ng-show="showNav" class="col-xs-6 col-sm-3 sidebar">
-        <ul class="nav">
-          <li  ng-repeat="room in rooms">
-            <a href="#" class="room-text" ng-click="openRoom(room.$id)">{{room.name}}</a>
-          </li>
-          <button type="button" class="add-room-button btn btn-default btn-sm" ng-click="open()">New Room</button>
-        </ul>
-      </div>
-
-      <!-- sidebar large screen -->
-      <div class="col-sm-3 hidden-xs sidebar-large">
-        <ul class="nav">
-          <li  ng-repeat="room in rooms">
-            <a href="#" class="room-text" ng-click="openRoom(room.$id)">{{room.name}}</a>
-          </li>
-          <button type="button" class="add-room-button btn btn-default btn-sm" ng-click="open()">New Room</button>
-        </ul>
-      </div>
-
-      <!-- main area -->
-        <div ng-hide="showNav" class="col-xs-12 col-sm-9">
-          <!-- <h3>{{time}}</h3> -->
-          <div class="messages" ng-repeat="message in messages | orderBy: 'sent_at'">
-            <span class="message-user">{{message.username}}</span>
-            <span class="message-content">{{message.content}}</span>
-            <span class="message-sent-at pull-right"><time>{{message.sent_at | timecode}}</time></span>
-          </div>
-
-          <div class="message-sender">
-            <form class="form" ng-submit="sendMessage(message)">
-              <input type="text" ng-model="newMessage" class="form-control message-text-box" placeholder="Speak your mind" />
-              <button type="button" class="btn btn-primary send-button" ng-click="sendMessage(message)">Send</button>
-            </form>
-          </div>
-        </div>
-
-
+  <!-- main area -->
+  <div ng-hide="showNav" class="col-sm-8 col-xs-12 well container message-container">
+    <div class="messages" ng-repeat="message in messages | orderBy: 'sent_at'">
+      <span class="message-user">{{message.username}}</span>
+      <span class="message-content">{{message.content}}</span>
+      <span class="message-sent-at pull-right"><time>{{message.sent_at | timecode}}</time></span>
     </div>
+
+
+    <form class="form container message-sender" ng-submit="sendMessage(message)">
+      <div class="message-text-box">
+        <input type="text" ng-model="newMessage" class="form-control" placeholder="Speak your mind" />
+      </div>
+      <div class="send-button">
+        <button type="button" class="btn btn-primary" ng-click="sendMessage(message)">Send</button>
+      </div>
+    </form>
   </div>
 </div>

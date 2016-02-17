@@ -4,7 +4,12 @@
     $scope.animationsEnabled = true;
     $scope.roomName = "Please choose a chat room to begin chatting";
     $scope.roomChosen = false;
+    $scope.showNav = false;
 
+
+    $scope.toggleNav = function() {
+      $scope.showNav = $scope.showNav === false ? true: false;
+    }
 
     $scope.open = function (size) {
       if (!$cookies.get('currentUser')){
@@ -34,6 +39,7 @@
         $scope.roomName = name;
       });
       $scope.roomChosen = true;
+      $scope.showNav = false;
       }
     };
 

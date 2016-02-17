@@ -1,151 +1,162 @@
 body {
-  background-color: aliceblue;
+  padding-top: 58px;
 }
 
-@media (max-width: 768px) {
-  .container {
-    margin-top: 50px;
-  }
-
-/*Modals*/
-  /*.modal-dialog {
-    width: 75%;
-  }*/
-
-  /*.modal-dialog-user {
-    max-width: 200px;
-  }*/
-
-/*Navbar*/
-  .title-text {
-    display: block;
-    padding: 5px;
-  }
-
-  .dropdown-title-text {
-    display: block;
-    padding: 10px;
-  }
-
-  .room-list {
-    display: block;
-  }
-
-/*Chat Room*/
-  .messages {
-    display: block;
-    width: 90%;
-  }
-
-  .message-sent-at {
-    float: right;
-  }
-
-  .message-sender {
-    display: block;
-  }
-
-  .message-text-box {
-    display: inline-block;
-    width: 80%;
-    margin-left: 10px;
-  }
-
-  .send-button {
-    display: inline-block;
-    margin-left: 10px;
-  }
-
-  .room-title-text {
-    padding: 10px;
-  }
+.col-xs-12 {
+  background-color: #fff;
 }
 
 
+.nav {
+  width: 95%;
+}
 
-@media (min-width: 768px) {
+li {
+  border:0 #f2f2f2 solid;
+  border-bottom-width:1px;
+}
 
-  .container {
-    margin-top: 100px;
+.navbar {
+  margin: 0px;
+}
+
+.sidebar-brand {
+  display: block;
+  margin-top: 15px;
+  width: 99px;
+  height: 33px;
+  text-align: center;
+}
+
+/* collapsed sidebar styles */
+@media screen and (max-width: 767px) {
+
+  .sidebar {
+    position: absolute;
+    width: 41.6%;
+    background-color: #a6a6a6;
   }
 
-/*Modals*/
-  /*.modal-dialog {
-    max-width: 60%;
-  }*/
-
-  /*.modal-dialog-user {
-    max-width: 400px;
-  }*/
-
-/*Navbar*/
-  .site-title {
-    display: inline-block;
+  .nav>li {
+    color: #ddd;
+    background: linear-gradient(#3E3E3E, #383838);
+    border-top: 1px solid #484848;
+    border-bottom: 1px solid #2E2E2E;
   }
 
-  .title-text {
-    display: inline-block;
-    padding: 5px;
+  .nav>li:first-child {
+    border-top:0;
   }
 
-  .room-dropdown {
-    display: inline-block;
+  .nav>li>a {
+    color: #ddd;
   }
 
-  .dropdown-title-text {
-    display: block;
-    padding: 10px;
+  .nav>li>a>img {
+    max-width: 14px;
   }
 
-  .room-list {
-    display: block;
+  .nav>li>a:hover, .nav>li>a:focus {
+    text-decoration: none;
+    background: linear-gradient(#373737, #323232);
+    color: #fff;
   }
 
-  .add-room-button {
-    margin-bottom: 15px;
+  .sidebar-brand {
+    padding-left: 10px;
+
   }
 
-/*Chat Room*/
+  .chat-room {
+    height: 90%;
+  }
+
   .messages {
     display: block;
+    line-height: 4rem;
+    padding: 2px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    border-radius: 25px;
+    background: lightgrey;
   }
 
-  .table-body {
-    width: 80%;
+  .messages:first-child {
+    margin-top: 15px;
   }
 
-  .message-user {
-    display: inline-block;
-    margin-right: 10px;
-    float: left;
+  .message-user{
+    font-family: raleway, sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    padding-left: 5px;
   }
 
   .message-content {
-    display: inline-block;
+    font-family: raleway, sans-serif;
+    font-size: 1.6rem;
+    padding-left: 15px;
   }
 
   .message-sent-at {
-    display: inline-block;
-    float: right;
-    margin-left: 400px;
-  }
-
-  .message-text-box {
-    display: inline-block;
-    width: 80%;
-    margin-left: 10px;
+    font-family: raleway, sans-serif;
+    font-size: 1.2rem;
+    padding-right: 5px
   }
 
   .message-sender {
-    display: block;
+    bottom: 15px;
+    position: fixed;
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar-large {
+    position: relative;
+    width: 30%;
+    background-color: #a6a6a6;
+    height: 100%;
+    padding-right: 0;
+    padding-top: 20px;
   }
 
-  .send-button {
-    display: inline-block;
-    margin-left: 10px;
+  .messages {
+    line-height: 4rem;
+    padding: 2px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    border-radius: 25px;
+    background: lightgrey;
   }
 
-  .room-title-text {
-    padding: 10px;
+  .messages:first-child {
+    margin-top: 15px;
+  }
+
+  .message-user{
+    font-family: raleway, sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    padding-left: 5px;
+  }
+
+  .message-content {
+    font-family: raleway, sans-serif;
+    font-size: 1.6rem;
+    padding-left: 15px;
+  }
+
+  .message-sent-at {
+    font-family: raleway, sans-serif;
+    font-size: 1.2rem;
+    padding-right: 5px
+  }
+
+  .message-sender {
+    position: fixed;
+    margin-right: auto;
+    bottom: 15px;
+    width: 80%;
   }
 }

@@ -1,41 +1,55 @@
-<div class="navbar navbar-default navbar-fixed-top navbar-left">
-      <div class="site-title">
-        <h1 class="title-text">Bloc Chat
-          <small class="room-title-text" ng-show="roomChosen">{{roomName}}</small>
-          <small class="welcome-text" ng-show="!roomChosen">Welcome {{blocChatCurrentUser}}! Please choose a chat room</small>
-        </h1>
-      </div>
-      <button type="button" class="room-dropdown btn btn-default dropdown-toggle"
-              data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">Choose Wisely</button>
-        <ul class="dropdown-menu nav-pills">
-          <li class="list-group-item" ng-repeat="room in rooms">
-            <a class="room-text" ng-click="openRoom(room.$id)">{{room.name}}</a>
-          </li>
-          <li>
-            <button type="button" class="add-room-button btn btn-primary" ng-click="open()">New Room</button>
-          </li>
-        </ul>
-</div>
-
-
-<div class="container">
-  <div class="row">
+<div class="page-container">
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
-      <table class="messages table table-striped">
-        <tr class="table-body" ng-repeat="message in messages | orderBy: 'sent_at'">
-          <th class="message-user">{{message.username}}</th>
-          <td class="message-content">{{message.content}}</td>
-          <td class="message-sent-at">{{message.sent_at}}</td>
-        </tr>
-      </table>
+      <div class="navbar-header">
+          <button class="navbar-toggle" ng-click="toggleNav()">
+            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+          </button>
+        <h4 class="sidebar-brand"><img class="img-responsive" src="/assets/images/bloc-chat-logo.png"</h4>
+      </div>
     </div>
   </div>
 
-      <div class="message-sender">
-        <form class="form" ng-submit="sendMessage(message)">
-          <input type="text" ng-model="newMessage" class="form-control message-text-box" placeholder="Speak your mind" />
-          <button type="button" class="btn btn-primary send-button" ng-click="sendMessage(message)">Send</button>
-        </form>
+  <div class="container-fluid chat-room">
+    <div class="row">
+
+      <!-- sidebar -->
+      <div ng-show="showNav" class="col-xs-6 col-sm-3 sidebar">
+        <ul class="nav">
+          <li  ng-repeat="room in rooms">
+            <a href="#" class="room-text" ng-click="openRoom(room.$id)">{{room.name}}</a>
+          </li>
+          <button type="button" class="add-room-button btn btn-default btn-sm" ng-click="open()">New Room</button>
+        </ul>
       </div>
+
+      <!-- sidebar large screen -->
+      <div class="col-sm-3 hidden-xs sidebar-large">
+        <ul class="nav">
+          <li  ng-repeat="room in rooms">
+            <a href="#" class="room-text" ng-click="openRoom(room.$id)">{{room.name}}</a>
+          </li>
+          <button type="button" class="add-room-button btn btn-default btn-sm" ng-click="open()">New Room</button>
+        </ul>
+      </div>
+
+      <!-- main area -->
+        <div ng-hide="showNav" class="col-xs-12 col-sm-9">
+          <div class="messages" ng-repeat="message in messages | orderBy: 'sent_at'">
+            <span class="message-user">{{message.username}}</span>
+            <span class="message-content">{{message.content}}</span>
+            <span class="message-sent-at pull-right">{{message.sent_at}}</span>
+          </div>
+
+          <div class="message-sender">
+            <form class="form" ng-submit="sendMessage(message)">
+              <input type="text" ng-model="newMessage" class="form-control message-text-box" placeholder="Speak your mind" />
+              <button type="button" class="btn btn-primary send-button" ng-click="sendMessage(message)">Send</button>
+            </form>
+          </div>
+        </div>
+
+
+    </div>
+  </div>
 </div>

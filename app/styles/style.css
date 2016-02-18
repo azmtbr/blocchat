@@ -1,10 +1,10 @@
 body {
-  margin-top: 83px;
-  overflow-y: hidden;
+  margin-top: 91px;
 }
 
 .col-xs-12 {
   background-color: #fff;
+  border: none;
 }
 
 
@@ -17,22 +17,26 @@ li {
   border-bottom-width:1px;
 }
 
-.navbar {
-  margin: 0px;
-}
-
-.sidebar-brand {
-  display: block;
-  margin-top: 15px;
-  width: 99px;
-  height: 33px;
-  text-align: center;
-}
 
 /* collapsed sidebar styles */
 @media screen and (max-width: 767px) {
   .navbar-header {
     margin-left: 20px;
+  }
+
+  .navbar-brand {
+    height: 90px;
+  }
+
+  .navbar-brand>img {
+    display: block;
+    padding: 0px;
+    height: 68px;
+    width: 200px;
+  }
+
+  .navbar-toggle {
+    margin-top: 25px;
   }
 
   .welcome-text {
@@ -41,8 +45,12 @@ li {
   }
 
   .modal-dialog {
-    min-width: 200px;
-    max-width: 300px;
+    min-width: 100px;
+    max-width: 200px;
+  }
+
+  ul {
+    overflow-y: scroll;
   }
 
   .sidebar {
@@ -58,69 +66,103 @@ li {
     padding-left: 10px;
   }
 
-  .message-container {
-    display: inline;
-    float: left;
-    max-height: 79vh;
-    overflow-y: scroll;
-  }
 
-  .messages {
-    display: block;
-    line-height: 4rem;
-    padding: 2px;
-    margin-top: 2px;
-    margin-bottom: 2px;
-    border-radius: 25px;
-    background: lightgrey;
-  }
 
-  .messages:first-child {
-    margin-top: 15px;
-  }
+  /*Messages container and sender*/
+    .chatroom-container {
+      /*flex*/
+      display: flex;
+      flex-direction: column;
+    }
 
-  .message-user{
-    font-family: raleway, sans-serif;
-    font-size: 2rem;
-    font-weight: bold;
-    padding-left: 5px;
-  }
+    .message-container {
+      /*flex*/
+      flex-grow: 2;
+      order: 1;
 
-  .message-content {
-    font-family: raleway, sans-serif;
-    font-size: 1.6rem;
-    padding-left: 15px;
-  }
+      padding: 0px;
+      padding-left: 15px;
+      padding-right: 15px;
+      overflow-y: scroll;
+    }
 
-  .message-sent-at {
-    font-family: raleway, sans-serif;
-    font-size: 1.2rem;
-    padding-right: 5px
-  }
+    .messages {
+      line-height: 3rem;
+      padding: 2px;
+      margin-top: 2px;
+      margin-bottom: 2px;
+      border-radius: 25px;
+      background: lightgrey;
+    }
 
-  .message-sender {
-    bottom: 30px;
-    position: fixed;
-    width: 90%;
-  }
+    .messages:first-child {
+      margin-top: 10px;
+    }
 
-  .message-text-box {
-    display: inline;
-    float: left;
-    width: 75%;
-  }
+    .sender-container {
+      /*flex*/
+      flex-grow: 1;
+      order: 2;
 
-  .send-button {
-    display: inline;
-    padding-left: 10px;
-    margin: auto;
+      position: static;
+      bottom: 15px;
+      width: 60%;
+    }
+
+    .message-sender {
+      margin-top: 15px;
+      margin-left: 25px;
+    }
+
+    .message-text-box {
+      display: inline;
+      float: left;
+      width: 83%;
+    }
+
+    .send-button {
+      display: inline;
+      padding-left: 10px;
+      margin: auto;
+    }
+
+
+    /*messages*/
+    .message-user{
+      font-family: raleway, sans-serif;
+      font-size: 2rem;
+      font-weight: bold;
+      padding-left: 5px;
+    }
+
+    .message-content {
+      font-family: raleway, sans-serif;
+      font-size: 1.6rem;
+      padding-left: 15px;
+    }
+
+    .message-sent-at {
+      font-family: raleway, sans-serif;
+      font-size: 1.2rem;
+      padding-right: 5px
+    }
   }
-}
 
 @media screen and (min-width: 768px) {
 
   .navbar-header {
     margin-left: 20px;
+  }
+
+  .navbar-brand>img {
+    display: block;
+    padding: 0px;
+    height: 68px;
+    width: 200px;
+  }
+
+  .navbar-brand {
+    height: 90px;
   }
 
   .welcome-text {
@@ -148,29 +190,28 @@ li {
     width: 300px;
   }
 
-  .chat-room {
-    display: block;
-    float: left;
-    width: 100%;
+
+/*Messages container and sender*/
+  .chatroom-container {
+    /*flex*/
+    display: flex;
+    flex-direction: column;
   }
 
   .message-container {
-    display: inline;
-    float: left;
-    max-height: 90vh;
+    /*flex*/
+    flex-grow: 2;
+    order: 1;
+
+    padding: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+    max-height: 83vh;
     overflow-y: scroll;
   }
 
-  .message-sender {
-    display: inline-block;
-    position: fixed;
-    bottom: 15px;
-    float: left;
-    width: 60%;
-  }
-
   .messages {
-    line-height: 4rem;
+    line-height: 3rem;
     padding: 2px;
     margin-top: 2px;
     margin-bottom: 2px;
@@ -179,9 +220,38 @@ li {
   }
 
   .messages:first-child {
-    margin-top: 15px;
+    margin-top: 10px;
   }
 
+  .sender-container {
+    /*flex*/
+    flex-grow: 1;
+    order: 2;
+
+    position: static;
+    bottom: 15px;
+    width: 60%;
+  }
+
+  .message-sender {
+    margin-top: 15px;
+    margin-left: 25px;
+  }
+
+  .message-text-box {
+    display: inline;
+    float: left;
+    width: 83%;
+  }
+
+  .send-button {
+    display: inline;
+    padding-left: 10px;
+    margin: auto;
+  }
+
+
+  /*messages*/
   .message-user{
     font-family: raleway, sans-serif;
     font-size: 2rem;
@@ -199,17 +269,5 @@ li {
     font-family: raleway, sans-serif;
     font-size: 1.2rem;
     padding-right: 5px
-  }
-
-  .message-text-box {
-    display: inline;
-    float: left;
-    width: 83%;
-  }
-
-  .send-button {
-    display: inline;
-    padding-left: 10px;
-    margin: auto;
   }
 }

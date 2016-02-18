@@ -1,17 +1,22 @@
+<!-- Navbar, site title, and current room -->
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="navbar-header">
         <button class="navbar-toggle" ng-click="toggleNav()">
           <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
         </button>
-      <h4 class="sidebar-brand"><img class="img-responsive" src="/assets/images/bloc-chat-logo.png"></h4>
-      <h5 class="welcome" ng-show="!roomChosen">Welcome {{blocChatCurrentUser}}! Please choose a chat room</h5>
-      <h5 class="room-title-text" ng-show="roomChosen">Room: {{roomName}}</h5>
+      <div class="navbar-brand">
+        <img class="img-responsive" src="/assets/images/bloc-chat-logo.png">
+      </div>
     </div>
 </div>
 
+
+<!-- Main content -->
 <div class="row container-fluid main-content">
-  <!-- sidebar -->
+<!-- sidebar -->
   <div ng-show="showNav" class="col-xs-4 visible-xs sidebar">
+    <span class="welcome" ng-show="!roomChosen">Welcome {{blocChatCurrentUser}}! Please choose a chat room</span>
+    <span class="room-title-text" ng-show="roomChosen">Room: {{roomName}}</span>
     <ul class="nav">
       <li  ng-repeat="room in rooms">
         <a href="#" class="room-text" ng-click="openRoom(room.$id)">{{room.name}}</a>
@@ -20,8 +25,10 @@
     </ul>
   </div>
 
-  <!-- sidebar large screen -->
+<!-- sidebar large screen -->
   <div class="col-sm-4 hidden-xs sidebar-large">
+    <span class="welcome" ng-show="!roomChosen">Welcome {{blocChatCurrentUser}}! Please choose a chat room</span>
+    <span class="room-title-text" ng-show="roomChosen">Room: {{roomName}}</span>
     <ul class="nav room-list">
       <li  ng-repeat="room in rooms">
         <a href="#" class="room-text" ng-click="openRoom(room.$id)">{{room.name}}</a>
@@ -30,22 +37,29 @@
     </ul>
   </div>
 
-  <!-- main area -->
-  <div ng-hide="showNav" class="col-sm-8 col-xs-12 well container message-container">
-    <div class="messages" ng-repeat="message in messages | orderBy: 'sent_at'">
-      <span class="message-user">{{message.username}}</span>
-      <span class="message-content">{{message.content}}</span>
-      <span class="message-sent-at pull-right"><time>{{message.sent_at | timecode}}</time></span>
+<!-- Chat room and message sender -->
+  <div ng-hide="showNav" class="col-sm-8 col-xs-12 chatroom-container">
+
+    <div class="message-container">
+      <div class="messages" ng-repeat="message in messages | orderBy: 'sent_at'">
+        <span class="message-user">{{message.username}}</span>
+        <span class="message-content">{{message.content}}</span>
+        <span class="message-sent-at pull-right"><time>{{message.sent_at | timecode}}</time></span>
+      </div>
     </div>
 
 
-    <form class="form container message-sender" ng-submit="sendMessage(message)">
-      <div class="message-text-box">
-        <input type="text" ng-model="newMessage" class="form-control" placeholder="Speak your mind" />
-      </div>
-      <div class="send-button">
-        <button type="button" class="btn btn-primary" ng-click="sendMessage(message)">Send</button>
-      </div>
-    </form>
+    <div class="sender-container">
+      <form class="message-sender" ng-submit="sendMessage(message)">
+        <div class="message-text-box">
+          <input type="text" ng-model="newMessage" class="form-control" placeholder="Speak your mind" />
+        </div>
+        <div class="send-button">
+          <button type="button" class="btn btn-primary" ng-click="sendMessage(message)">Send</button>
+        </div>
+      </form>
+    </div>
+
+
   </div>
 </div>

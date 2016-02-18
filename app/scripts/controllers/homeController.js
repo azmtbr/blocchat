@@ -4,7 +4,7 @@
     $scope.animationsEnabled = true;
     $scope.roomName = "Please choose a chat room to begin chatting";
     $scope.roomChosen = false;
-    $scope.showNav = false;
+    $scope.showNav = true;
 
     // $scope.time = $moment('20111031', "YYYYMMDD").fromNow();
 
@@ -45,8 +45,10 @@
     };
 
     $scope.sendMessage = function () {
-      Message.send($scope.currentRoomId, $scope.newMessage);
-      $scope.newMessage = "";
+      if ($scope.currentRoomId !== null && $scope.newMessage.trim() !== "") {
+          Message.send($scope.currentRoomId, $scope.newMessage);
+          $scope.newMessage = "";
+      }
     };
   }
 

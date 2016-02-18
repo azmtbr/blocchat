@@ -1,10 +1,13 @@
 (function() {
   function roomModalController($scope, $uibModalInstance, Rooms) {
     $scope.rooms = Rooms.rooms;
+    $scope.newRoom = "";
 
     $scope.createRoom = function() {
-      $uibModalInstance.close($scope.room);
-      Rooms.create($scope.newRoom);
+      if ($scope.newRoom.trim() !== "") {
+        $uibModalInstance.close($scope.room);
+        Rooms.create($scope.newRoom);
+      }
     };
 
     $scope.cancel = function() {

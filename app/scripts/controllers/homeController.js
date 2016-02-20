@@ -1,5 +1,5 @@
 (function() {
-  function homeController($scope, Rooms, Message, $uibModal, $cookies) {
+  function homeController($scope, $location, $anchorScroll, Rooms, Message, $uibModal, $cookies) {
     $scope.rooms = Rooms.all;
     $scope.animationsEnabled = true;
     $scope.roomName = "Please choose a chat room to begin chatting";
@@ -48,6 +48,8 @@
       if ($scope.currentRoomId !== null && $scope.newMessage.trim() !== "") {
           Message.send($scope.currentRoomId, $scope.newMessage);
           $scope.newMessage = "";
+          $location.hash('bottom');
+          $anchorScroll();
       }
     };
   }
@@ -55,5 +57,5 @@
 
   angular
 		.module('blocChat')
-		.controller('homeController', ['$scope', 'Rooms', 'Message', '$uibModal', '$cookies', homeController]);
+		.controller('homeController', ['$scope', '$location', '$anchorScroll', 'Rooms', 'Message', '$uibModal', '$cookies', homeController]);
 })();

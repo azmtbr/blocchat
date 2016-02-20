@@ -1,15 +1,10 @@
-body {
-  margin-top: 91px;
-}
 
-.col-xs-12 {
-  background-color: #fff;
-  border: none;
+.row {
+  border: 2px solid red;
 }
-
 
 .nav {
-  width: 95%;
+  width: 85%;
 }
 
 li {
@@ -17,26 +12,37 @@ li {
   border-bottom-width:1px;
 }
 
+.header {
+  background-color: lightgrey;
+
+}
+
+.main-content {
+  position: fixed;
+  height: 90vh;
+  width: 100vw;
+}
+
 
 /* collapsed sidebar styles */
 @media screen and (max-width: 767px) {
-  .navbar-header {
-    margin-left: 20px;
-  }
+
 
   .navbar-brand {
-    height: 90px;
+    height: 60px;
+    margin-top: -6px;
   }
 
   .navbar-brand>img {
     display: block;
     padding: 0px;
-    height: 68px;
-    width: 200px;
+    margin-top: -1px;
+    height: 34px;
+    width: 100px;
   }
 
   .navbar-toggle {
-    margin-top: 25px;
+    margin-top: 12px;
   }
 
   .welcome-text {
@@ -73,12 +79,22 @@ li {
       /*flex*/
       display: flex;
       flex-direction: column;
+
+      height: inherit;
+      border: 2px solid red;
     }
 
     .message-container {
       /*flex*/
-      flex-grow: 2;
+      flex-grow: 9;
       order: 1;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+
+      border: 2px solid red;
+
 
       padding: 0px;
       padding-left: 15px;
@@ -87,6 +103,12 @@ li {
     }
 
     .messages {
+      /*flex*/
+      flex-grow: 1;
+      width: inherit;
+
+
+
       line-height: 3rem;
       padding: 2px;
       margin-top: 2px;
@@ -103,10 +125,13 @@ li {
       /*flex*/
       flex-grow: 1;
       order: 2;
+      flex-basis: 40px;
+
+      border: 2px solid green;
+
 
       position: static;
       bottom: 15px;
-      width: 60%;
     }
 
     .message-sender {
@@ -150,9 +175,6 @@ li {
 
 @media screen and (min-width: 768px) {
 
-  .navbar-header {
-    margin-left: 20px;
-  }
 
   .navbar-brand>img {
     display: block;
@@ -178,13 +200,7 @@ li {
     height: 100vh;
     overflow-y: scroll;
     padding-right: 0;
-    padding-top: 20px;
-  }
-
-  .room-list {
-    display: block;
-    height: 100%;
-  }
+    }
 
   .modal-dialog {
     width: 300px;
@@ -196,6 +212,9 @@ li {
     /*flex*/
     display: flex;
     flex-direction: column;
+
+    border: 2px solid red;
+    height: inherit;
   }
 
   .message-container {
@@ -203,14 +222,24 @@ li {
     flex-grow: 2;
     order: 1;
 
+    display: flex;
+    flex-direction: column;
+
+    border: 2px solid red;
+
+
+    width: inherit;
     padding: 0px;
     padding-left: 15px;
     padding-right: 15px;
     max-height: 83vh;
-    overflow-y: scroll;
+    overflow: auto;
   }
 
   .messages {
+
+    flex-grow: 1;
+
     line-height: 3rem;
     padding: 2px;
     margin-top: 2px;
@@ -228,26 +257,27 @@ li {
     flex-grow: 1;
     order: 2;
 
+    border: 2px solid green;
+
+    margin-bottom: 42px;
+    width: inherit;
     position: static;
     bottom: 15px;
-    width: 60%;
   }
 
   .message-sender {
-    margin-top: 15px;
-    margin-left: 25px;
+    margin: 20px;
   }
 
   .message-text-box {
     display: inline;
     float: left;
-    width: 83%;
+    width: 87%;
   }
 
   .send-button {
     display: inline;
     padding-left: 10px;
-    margin: auto;
   }
 
 

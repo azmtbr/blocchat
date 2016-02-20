@@ -13,7 +13,7 @@
 				templateUrl: '/templates/home.html'
 			});
 
-		
+
 	}
 
 

@@ -147,6 +147,7 @@ li {
       flex-grow: 0;
       order: 2;
       min-height: 52px;
+      margin-bottom: 95px;
     }
 
     .message-sender {

@@ -1,10 +1,14 @@
-
-.row {
-  border: 2px solid red;
+html, body {
+  height: 100%;
 }
 
-.nav {
-  width: 85%;
+.welcome .nav {
+  width: 91%;
+  padding-left: 7px:
+}
+
+h2 {
+  text-align: center;
 }
 
 li {
@@ -12,21 +16,49 @@ li {
   border-bottom-width:1px;
 }
 
+.welcome {
+  padding-left: 8px;
+}
+
 .header {
   background-color: lightgrey;
-
+  position: fixed;
+  height: 90px;
+  width: 100%;
+  z-index: 1;
 }
 
 .main-content {
   position: fixed;
-  height: 90vh;
-  width: 100vw;
+  padding-top: 90px;
+  height: 100vh;
+  width: 100%;
+}
+
+.welcome-text {
+  margin-top: 12px;
+  margin-right: 20px;
+}
+
+.add-room-button {
+  margin-top: 15px;
+  margin-left: 10px;
 }
 
 
-/* collapsed sidebar styles */
+/*collapsed sidebar styles */
 @media screen and (max-width: 767px) {
+  .main-content {
+    width: 100%;
+  }
 
+  .header-content {
+    padding-top: 10px;
+  }
+
+  .top-header {
+    margin-top: 15px;
+  }
 
   .navbar-brand {
     height: 60px;
@@ -36,18 +68,13 @@ li {
   .navbar-brand>img {
     display: block;
     padding: 0px;
-    margin-top: -1px;
-    height: 34px;
-    width: 100px;
+    margin-top: 4px;
+    height: 45px;
+    width: 122px;
   }
 
   .navbar-toggle {
-    margin-top: 12px;
-  }
-
-  .welcome-text {
-    margin-top: 12px;
-    margin-right: 20px;
+    margin-top: 16px;
   }
 
   .modal-dialog {
@@ -63,7 +90,7 @@ li {
     position: absolute;
     width: 40%;
     min-width: 150px;
-    height: 100vh;
+    height: 100%;
     overflow-y: scroll;
     background-color: #a6a6a6;
   }
@@ -74,47 +101,41 @@ li {
 
 
 
-  /*Messages container and sender*/
+/*Messages container and sender*/
     .chatroom-container {
       /*flex*/
       display: flex;
       flex-direction: column;
-
-      height: inherit;
-      border: 2px solid red;
+      height: 100%;
+      width: 100%;
+      padding-left: 15px;
     }
 
     .message-container {
       /*flex*/
-      flex-grow: 9;
+      flex-grow: 1;
       order: 1;
-
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
-
-      border: 2px solid red;
-
-
+      width: 100%;
       padding: 0px;
-      padding-left: 15px;
-      padding-right: 15px;
+      padding-left: 20px;
+      padding-right: 10px;
+    }
+
+    .message-scroll {
       overflow-y: scroll;
+      padding-left: 10px;
+      padding-right: 5px;
     }
 
     .messages {
-      /*flex*/
-      flex-grow: 1;
-      width: inherit;
-
-
-
+      flex-grow: 0;
       line-height: 3rem;
-      padding: 2px;
       margin-top: 2px;
-      margin-bottom: 2px;
+      margin-bottom: 6px;
       border-radius: 25px;
-      background: lightgrey;
+      background: lightblue;
     }
 
     .messages:first-child {
@@ -123,59 +144,54 @@ li {
 
     .sender-container {
       /*flex*/
-      flex-grow: 1;
+      flex-grow: 0;
       order: 2;
-      flex-basis: 40px;
-
-      border: 2px solid green;
-
-
-      position: static;
-      bottom: 15px;
+      min-height: 52px;
     }
 
     .message-sender {
-      margin-top: 15px;
-      margin-left: 25px;
+      padding-left: 20px;
+      width: 100%;
+      padding-top: 10px;
     }
 
     .message-text-box {
       display: inline;
       float: left;
-      width: 83%;
+      width: 75%;
     }
 
     .send-button {
       display: inline;
       padding-left: 10px;
-      margin: auto;
     }
 
 
-    /*messages*/
+/*messages*/
     .message-user{
       font-family: raleway, sans-serif;
       font-size: 2rem;
       font-weight: bold;
-      padding-left: 5px;
+      padding-left: 25px;
     }
 
     .message-content {
       font-family: raleway, sans-serif;
       font-size: 1.6rem;
-      padding-left: 15px;
+      width: 77.3%;
+      padding-left: 27px;
     }
 
     .message-sent-at {
+      text-align: right;
       font-family: raleway, sans-serif;
       font-size: 1.2rem;
-      padding-right: 5px
+      padding-right: 25px;
+      width: 100%;
     }
   }
 
 @media screen and (min-width: 768px) {
-
-
   .navbar-brand>img {
     display: block;
     padding: 0px;
@@ -185,11 +201,7 @@ li {
 
   .navbar-brand {
     height: 90px;
-  }
-
-  .welcome-text {
-    margin-top: 12px;
-    margin-right: 20px;
+    padding-top: 9px;
   }
 
   .sidebar-large {
@@ -197,7 +209,7 @@ li {
     float: left;
     position: relative;
     background-color: #a6a6a6;
-    height: 100vh;
+    height: 100%;
     overflow-y: scroll;
     padding-right: 0;
     }
@@ -212,40 +224,34 @@ li {
     /*flex*/
     display: flex;
     flex-direction: column;
-
-    border: 2px solid red;
-    height: inherit;
+    height: 100%;
   }
 
   .message-container {
     /*flex*/
-    flex-grow: 2;
+    flex-grow: 1;
     order: 1;
-
     display: flex;
     flex-direction: column;
-
-    border: 2px solid red;
-
-
-    width: inherit;
+    width: 100%;
     padding: 0px;
-    padding-left: 15px;
-    padding-right: 15px;
-    max-height: 83vh;
-    overflow: auto;
+    padding-left: 20px;
+    padding-right: 10px;
+  }
+
+  .message-scroll {
+    overflow-y: scroll;
+    padding-left: 10px;
+    padding-right: 5px;
   }
 
   .messages {
-
-    flex-grow: 1;
-
+    flex-grow: 0;
     line-height: 3rem;
-    padding: 2px;
     margin-top: 2px;
-    margin-bottom: 2px;
+    margin-bottom: 6px;
     border-radius: 25px;
-    background: lightgrey;
+    background: lightblue;
   }
 
   .messages:first-child {
@@ -254,19 +260,15 @@ li {
 
   .sender-container {
     /*flex*/
-    flex-grow: 1;
+    flex-grow: 0;
     order: 2;
-
-    border: 2px solid green;
-
-    margin-bottom: 42px;
-    width: inherit;
-    position: static;
-    bottom: 15px;
+    min-height: 52px;
   }
 
   .message-sender {
-    margin: 20px;
+    width: 100%;
+    padding-left: 20px;
+    padding-top: 10px;
   }
 
   .message-text-box {
@@ -283,21 +285,24 @@ li {
 
   /*messages*/
   .message-user{
+    display: inline-block;
     font-family: raleway, sans-serif;
     font-size: 2rem;
     font-weight: bold;
-    padding-left: 5px;
+    padding-left: 25px;
   }
 
   .message-content {
+    display: inline-block;
     font-family: raleway, sans-serif;
     font-size: 1.6rem;
-    padding-left: 15px;
   }
 
   .message-sent-at {
+    display: inline-block;
+    text-align: right;
     font-family: raleway, sans-serif;
     font-size: 1.2rem;
-    padding-right: 5px
+    padding-right: 25px;
   }
 }

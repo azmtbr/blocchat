@@ -1,14 +1,13 @@
-<!-- Navbar, site title, and current room -->
-<div class="page-wrapper">
+<!-- Header, site title, and hamburger nav-->
   <div class="header">
-    <div class="container-fluid">
-      <div class="navbar-header">
-          <button class="navbar-toggle" ng-click="toggleNav()">
-            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-          </button>
-        <div class="navbar-brand">
-          <img class="img-responsive" src="/assets/images/bloc-chat-logo.png">
-        </div>
+    <div class="container-fluid header-content">
+      <div class="toggle-button">
+        <button class="navbar-toggle" ng-click="toggleNav()">
+          <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="navbar-brand">
+        <img class="img-responsive" src="/assets/images/bloc-chat-logo.png">
       </div>
     </div>
   </div>
@@ -19,8 +18,8 @@
   <main class="row main-content">
   <!-- sidebar -->
     <section ng-show="showNav" class="col-xs-4 visible-xs sidebar">
-      <span class="welcome" ng-show="!roomChosen">Welcome {{blocChatCurrentUser}}! Please choose a chat room</span>
-      <span class="room-title-text" ng-show="roomChosen">Room: {{roomName}}</span>
+      <span class="welcome" ng-show="!roomChosen">Welcome! Please choose a chat room</span>
+      <h2 class="room-title-text" ng-show="roomChosen">{{roomName}}</h2>
       <ul class="nav">
         <li  ng-repeat="room in rooms">
           <a href="#" class="room-text" ng-click="openRoom(room.$id)">{{room.name}}</a>
@@ -31,8 +30,8 @@
 
   <!-- sidebar large screen -->
     <section class="col-sm-3 hidden-xs sidebar-large">
-      <span class="welcome" ng-show="!roomChosen">Welcome {{blocChatCurrentUser}}! Please choose a chat room</span>
-      <span class="room-title-text" ng-show="roomChosen">Room: {{roomName}}</span>
+      <span class="welcome" ng-show="!roomChosen">Welcome! Please choose a chat room</span>
+      <h2 class="room-title-text" ng-show="roomChosen">{{roomName}}</h2>
       <ul class="nav room-list">
         <li  ng-repeat="room in rooms">
           <a href="#" class="room-text" ng-click="openRoom(room.$id)">{{room.name}}</a>
@@ -44,19 +43,23 @@
   <!-- Chat room and message sender -->
     <div class="chatroom-container">
 
-      <div ng-hide="showNav" class="col-sm-9 col-xs-12 message-container">
+      <div ng-hide="showNav" class="col-xs-12 message-container">
 
+        <div class="message-scroll">
           <div class="messages" ng-repeat="message in messages | orderBy: 'sent_at'">
-            <span class="message-user">{{message.username}}</span>
-            <span class="message-content">{{message.content}}</span>
-            <span class="message-sent-at pull-right"><time>{{message.sent_at | timecode}}</time></span>
+            <div class="row row-centered">
+              <span class="message-user col-xs-2 col-centered">{{message.username}}</span>
+              <span class="message-content col-xs-7 col-centered">{{message.content}}</span>
+              <span class="message-sent-at col-xs-3 col-centered"><time>{{message.sent_at | timecode}}</time></span>
+            </div>
           </div>
-          <div  id="bottom" ></div>
+        </div>
+
 
       </div>
 
 
-      <div ng-hide="showNav" class="col-sm-9 col-xs-12 sender-container">
+      <div ng-hide="showNav" class="col-xs-12 sender-container">
         <form class="message-sender" ng-submit="sendMessage(message)">
           <div class="message-text-box">
             <input type="text" ng-model="newMessage" class="form-control" placeholder="Speak your mind" />
@@ -70,4 +73,3 @@
 
     </div>
   </main>
-</div>

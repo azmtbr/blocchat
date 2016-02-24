@@ -15,7 +15,7 @@
 
 
   <!-- Main content -->
-  <main class="row main-content">
+  <main class="main-content">
   <!-- sidebar -->
     <section ng-show="showNav" class="col-xs-4 visible-xs sidebar">
       <span class="welcome" ng-show="!roomChosen">Welcome! Please choose a chat room</span>
@@ -46,12 +46,10 @@
       <div ng-hide="showNav" class="col-xs-12 message-container">
 
         <div class="message-scroll">
-          <div class="messages" ng-repeat="message in messages | orderBy: 'sent_at'">
-            <div class="row row-centered">
+          <div class="messages clearfix" ng-repeat="message in messages | orderBy: 'sent_at'">
               <span class="message-user col-xs-2 col-centered">{{message.username}}</span>
               <span class="message-content col-xs-7 col-centered">{{message.content}}</span>
               <span class="message-sent-at col-xs-3 col-centered"><time>{{message.sent_at | timecode}}</time></span>
-            </div>
           </div>
         </div>
 
